@@ -10,19 +10,19 @@ variables:
 tasks:
 # Recipe Specific server.cfg files
   - action: download_github
-    src: https://github.com/VORPCORE/VORP_txAdmin
+    src: https://github.com/GhostikGER/redM
     ref: main
     dest: ./temp/vorp_txAdminRecipe
-  
+
   - action: move_path
     src: ./temp/vorp_txAdminRecipe/server.cfg
     dest: ./server.cfg
-  
+
 # Run Database SQL
   - action: connect_database
   - action: query_database
     file: ./temp/vorp_txAdminRecipe/MariaDB.sql
-    
+
 # Download default CFX resources
   - action: download_github
     src: https://github.com/outsider31000/cfx-server-data
@@ -35,7 +35,7 @@ tasks:
     src: https://github.com/VORPCORE/vorp_pre-made
     ref: main
     dest: ./temp/premade
-  
+
 # Move all vorp resources and files to root for txadmin
   - action: move_path
     src: ./temp/premade/server/resources/[VORP]
